@@ -1,0 +1,75 @@
+html{
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+}
+
+.center{
+  position: relative;
+  margin: 0 auto;
+  width: 960px;
+  min-height: 100%;
+}
+
+header{
+  height: 7rem;
+  background-color: #87ceed;
+}
+
+.header{
+  font-size: 3rem;
+  padding-top: 2rem;
+  text-align: center;
+  height: 7rem;
+}
+
+.title{
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.content{
+  width: 960px;
+}
+
+.subTitle{
+  font-size: 2rem;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.topLink{
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.btn a:visited{
+  color: #000;
+}
+
+#notice{
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+footer{
+  height: 5rem;
+  width: 960px;
+  background-color: #87ceed;
+  position: absolute;
+  bottom: 0;
+}
+
+footer p{
+  font-size: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+}

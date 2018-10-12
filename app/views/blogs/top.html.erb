@@ -1,0 +1,24 @@
+<p class="title">
+  このアプリケーションでできること
+</p>
+
+<div class="container content">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <p class="subTitle">
+        このアプリでは以下のことができます。
+      </p>
+      <div>
+          <ul>1, ブログの新規登録</ul>
+          <ul>2, ブログの詳細確認</ul>
+          <ul>3, ブログの編集</ul>
+          <ul>4, ブログの削除</ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <%= image_tag("blog.png", :size => "350×200") %>
+    </div>
+  </div>
+</div>
+
+<p class="topLink"><%= link_to  'ブログの新規作成へ', new_blog_path %></p>

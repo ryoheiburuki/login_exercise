@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>title：</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>content：</strong>
+  <%= @blog.content %>
+</p>
+<%= link_to '編集', edit_blog_path(@blog), class: :"btn btn-info" %>
+<br><br>
+<%= link_to '一覧を表示', blogs_path %>
