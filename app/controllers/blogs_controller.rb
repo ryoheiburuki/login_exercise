@@ -20,7 +20,8 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(blog_params)
+    current_user
+    @blog = Blog.new(title: params[:blog][:title], content: params[:blog][:content], user_id: session.id)
 
     if @blog.save
       redirect_to @blog, notice: 'ブログが登録されました'
@@ -43,7 +44,7 @@ class BlogsController < ApplicationController
   end
 
   def identify_user
-    if current_user.nil?
+    unless logged_in?
       redirect_to new_session_path
     end
   end
@@ -54,6 +55,6 @@ class BlogsController < ApplicationController
     end
 
     def blog_params
-      params.require(:blog).permit(:title, :content)
+      params.require(:blog).permit(:title, :content, :user_id)
     end
 end
