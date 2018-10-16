@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :identify_user, only: [:new, :edit, :show, :destroy]
+  before_action :current_user_name
 
   def top
   end
@@ -10,6 +11,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
   def new
@@ -22,7 +24,7 @@ class BlogsController < ApplicationController
   def create
     current_user
     @blog = Blog.new(blog_params)
-
+    @blog.user_id = current_user.id
     if @blog.save
       redirect_to @blog, notice: 'ブログが登録されました'
     else
@@ -49,6 +51,12 @@ class BlogsController < ApplicationController
     end
   end
 
+  def current_user_name
+    if logged_in?
+      @user = User.find(session[:user_id])
+    end
+  end
+
   private
 
   def set_blog
@@ -56,6 +64,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content)
   end
 end

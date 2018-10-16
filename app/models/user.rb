@@ -4,4 +4,8 @@ class User < ApplicationRecord
   before_validation {email.downcase!}
   has_secure_password
   validates :password_digest, presence: true, length: {minimum: 8}
+  has_many :blogs
+  has_many :favorites, dependent: :destroy
+  #destroyオプション：紐付いているユーザーが削除されたらfavoriteも削除する
+  has_many :favorite_blogs, through: :favorites, source: :blog
 end

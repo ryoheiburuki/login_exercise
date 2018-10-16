@@ -1,1 +1,22 @@
-<%= link_to "ブログの新規作成へ", new_blog_path %>
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>content</th>
+      <th>投稿者</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favorites_blogs.each do |favorite_blog| %>
+      <tr>
+        <td><%= favorite_blog.title %></td>
+        <td><%= favorite_blog.content %></td>
+        <td><%= favorite_blog.title %></td>
+        <td><%= link_to '表示', blog_path(favorite_blog.id), class: :"btn btn-success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to "ブログ一覧へ", blogs_path %>
