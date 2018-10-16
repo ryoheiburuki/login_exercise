@@ -19,6 +19,10 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    # binding.pry
+    if @blog.user_id != current_user.id
+      redirect_to blogs_path
+    end
   end
 
   def create
