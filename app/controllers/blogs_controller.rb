@@ -29,7 +29,7 @@ class BlogsController < ApplicationController
     current_user
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
-    ContactMailer.confirm_mail(@blog).deliver 
+    ContactMailer.confirm_mail(@blog).deliver
     if @blog.save
       redirect_to @blog, notice: 'ブログが登録されました'
     else
@@ -69,6 +69,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :blog_image_url)
   end
 end

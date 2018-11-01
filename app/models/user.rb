@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   #destroyオプション：紐付いているユーザーが削除されたらfavoriteも削除する
   has_many :favorite_blogs, through: :favorites, source: :blog
+  mount_uploader :user_image_url, ImageUploader
 end

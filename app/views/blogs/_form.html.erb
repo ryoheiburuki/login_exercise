@@ -21,6 +21,11 @@
     <%= form.text_area :content, id: :blog_content %>
   </div>
 
+  <div class="field">
+    <%= form.label "画像" %>
+    <%= form.file_field :blog_image_url %>
+  </div>
+
   <div class="actions">
     <%= form.submit "送信" , class: :"btn btn-warning"%>
   </div>

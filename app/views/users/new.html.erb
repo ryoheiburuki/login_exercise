@@ -4,7 +4,7 @@
   <div id="error_eplanation">
     <h3>
       <%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:
-    </h2>
+    </h3>
     <ul
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -20,6 +20,9 @@
 
   <%= f.label :email %>
   <%= f.email_field :email %>
+
+  <%= f.label "プロフィール画像" %>
+  <%= f.file_field :user_image_url %>
 
   <%= f.label :password %>
   <%= f.password_field :password %>

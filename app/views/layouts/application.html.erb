@@ -13,6 +13,7 @@
       <%= render "sheard/header" %>
 
       <% if logged_in? %>
+        <%= image_tag @user.user_image_url %>
         <%= @user.name + "さん、こんにちは" %><br>
         <%= link_to "マイページ", user_path(current_user.id) %>
         <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>

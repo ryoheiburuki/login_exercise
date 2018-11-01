@@ -7,6 +7,8 @@
   <strong>content：</strong>
   <%= @blog.content %>
 </p>
+<%= image_tag @blog.blog_image_url %>
+<br>
 <% if @blog.user_id == @current_user.id %>
   <%= link_to '編集', edit_blog_path(@blog), class: :"btn btn-info" %>
 <% end %>
